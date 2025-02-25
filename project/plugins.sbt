@@ -2,6 +2,7 @@
 addSbtPlugin("org.playframework" % "sbt-plugin" % "3.0.6")
 
 // Defines scaffolding (found under .g8 folder)
-// http://www.foundweekends.org/giter8/scaffolding.html
-// sbt "g8Scaffold form"
-addSbtPlugin("org.foundweekends.giter8" % "sbt-giter8-scaffold" % "0.17.0")
+addSbtPlugin("org.foundweekends.giter8" % "sbt-giter8-scaffold" % "0.11.0")
+
+addSbtPlugin("com.payintech" % "sbt-play-ebean" % "20.02")
+

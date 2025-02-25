@@ -3,9 +3,9 @@ organization := "com.forwardmethis"
 
 version := "1.0-SNAPSHOT"
 
-lazy val root = (project in file(".")).enablePlugins(PlayJava)
+lazy val root = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
 
-scalaVersion := "2.13.16"
+scalaVersion := "2.13.2"
 
 libraryDependencies += guice
 
@@ -15,5 +15,15 @@ libraryDependencies += "commons-validator" %  "commons-validator" % "1.9.0"
 //Database Support
 libraryDependencies ++= Seq(
   javaJdbc,
-  "mysql" % "mysql-connector-java" % "8.0.14"
+  evolutions,
+  "mysql" % "mysql-connector-java" % "8.0.33",
+  "org.avaje.ebean" % "ebean" % "14.6.1"
 )
+
+// Force scala-xml version to 2.3.0
+dependencyOverrides += "org.scala-lang.modules" %% "scala-xml" % "2.3.0"
+
+libraryDependencies += "com.typesafe.play" %% "play-mailer" % "8.0.0"
+libraryDependencies += "com.typesafe.play" %% "play-mailer-guice" % "8.0.0"
+
+evictionWarningOptions in update := EvictionWarningOptions.empty
